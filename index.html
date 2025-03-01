@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Класична криптографија</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script defer src="/js/script.js"></script>
+</head>
+<body>
+    <!-- navbar -->
+    <nav class="navbar">
+        <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+        <ul id="menu">
+            <li><a href="#">Почетна</a></li>
+            <li><a href="#ciphers">Шифри</a></li>
+            <li><a href="#about">За нас</a></li>
+        </ul>
+    </nav>
+
+    <!-- main section - hero -->
+    <section class="hero-section">
+        <div class="hero">
+            <div class="hero-content">
+                <h1 class="typed"></h1>
+                <p id="hero-text"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ciphers section -->
+    <section class="ciphers-section" id="ciphers">
+        <div class="ciphers">
+            <div class="ciphers-content">
+                
+                <div class="cipher" id="atbash">
+                    <h2>Atbash</h2>
+                    <p>Atbash е едноставна шифра за замена во која азбуката се превртува.</p>
+                    <p>На пример, 'A' станува 'Z', 'B' станува 'Y' итн. Ова е една од најстарите шифри. 
+                        <a href="javascript:void(0);" onclick="toggleContent(this)" class="seeMoreLink">🔍 Види повеќе</a>
+                    </p>
+                    <div class="moreContent-atbash" style="display: none;">
+                        <table>
+                            <tr>
+                                <td>A</td> <td>B</td> <td>C</td> <td>D</td> <td>E</td> <td>F</td> <td>G</td> <td>H</td> <td>I</td> <td>J</td> <td>K</td> <td>L</td> <td>M</td>
+                            </tr>
+                            <tr>
+                                <td>N</td> <td>Y</td> <td>X</td> <td>W</td> <td>V</td> <td>U</td> <td>T</td> <td>S</td> <td>R</td> <td>Q</td> <td>P</td> <td>O</td> <td>N</td>
+                            </tr>
+                        </table>
+
+                        <h3>📌 Пример</h3>
+                        <p><strong>Оригинален текст:</strong> "HELLO"</p>
+                    
+                        <table>
+                            <tr>
+                                <th>Оригинални </th>
+                                <td>H</td> <td>E</td> <td>L</td> <td>L</td> <td>O</td>
+                            </tr>
+                            <tr>
+                                <th>Шифрирани </th>
+                                <td>S</td> <td>V</td> <td>O</td> <td>O</td> <td>L</td>
+                            </tr>
+                        </table>
+                    
+                        <p><strong>Шифриран текст:</strong> "SVOOL"</p>
+                    
+                    </div>
+                    <a href="./views/atbash.html" class="btn">Пробај сам</a>
+                </div>
+                
+                <div class="cipher" id="albam">
+                    <h2>Albam</h2>
+                    <p>ALBAM (атбаш варијанта) шифрата е едноставен метод на заменување каде што првата половина од азбуката се заменува со втората половина. Ова значи дека A станува N, B станува O, C станува P, итн.
+                        <a href="javascript:void(0);" onclick="toggleContent(this)" class="seeMoreLink">🔍 Види повеќе</a>
+                    </p>
+                    <div class="moreContent-albam" style="display: none;">
+                        <table>
+                            <tr>
+                                <td>A</td> <td>B</td> <td>C</td> <td>D</td> <td>E</td> <td>F</td> <td>G</td> <td>H</td> <td>I</td> <td>J</td> <td>K</td> <td>L</td> <td>M</td>
+                            </tr>
+                            <tr>
+                                <td>N</td> <td>O</td> <td>P</td> <td>Q</td> <td>R</td> <td>S</td> <td>T</td> <td>U</td> <td>V</td> <td>W</td> <td>X</td> <td>Y</td> <td>Z</td>
+                            </tr>
+                        </table>
+
+                        <h3>📌 Пример</h3>
+                        <p><strong>Оригинален текст:</strong> "HELLO"</p>
+                    
+                        <table>
+                            <tr>
+                                <th>Оригинални </th>
+                                <td>H</td> <td>E</td> <td>L</td> <td>L</td> <td>O</td>
+                            </tr>
+                            <tr>
+                                <th>Шифрирани </th>
+                                <td>U</td> <td>R</td> <td>Y</td> <td>Y</td> <td>B</td>
+                            </tr>
+                        </table>
+                    
+                        <p><strong>Шифриран текст:</strong> "URYYB"</p>
+                    </div>
+                    <a href="./views/albam.html" class="btn">Пробај сам</a>
+                </div>
+                
+                <div class="cipher" id="hill">
+                    <h2>Hill</h2>
+                    <p>Hill шифрата е класичен алгоритам за шифрирање кој користи <strong>линеарна алгебра</strong>... 
+                        <a href="javascript:void(0);" onclick="toggleContent(this)" class="seeMoreLink">🔍 Види повеќе</a>
+                    </p>
+                    
+                    <div class="moreContent-hill" style="display: none;">
+                        <div class="container">
+                            <h3>📌 Пример</h3>
+                            <p><strong>Отворен текст:</strong> "HELLO"</p>
+                            <p><strong>Клучна матрица:</strong></p>
+                    
+                            <table>
+                                <tr>
+                                    <th>2</th> <th>3</th>
+                                </tr>
+                                <tr>
+                                    <th>1</th> <th>4</th>
+                                </tr>
+                            </table>
+                    
+                            <h3> Шифрирање</h3>
+                            <ol>
+                                <li>Претвори го "HELLO" во броеви (A=0, ..., Z=25):</li>
+                            </ol>
+                    
+                            <table>
+                                <tr>
+                                    <th>H</th> <th>E</th> <th>L</th> <th>L</th> <th>O</th>
+                                </tr>
+                                <tr>
+                                    <td>7</td> <td>4</td> <td>11</td> <td>11</td> <td>14</td>
+                                </tr>
+                            </table>
+                    
+                            <ol start="2">
+                                <li>Групирај ги во вектори (матрица 2×2):</li>
+                            </ol>
+                    
+                            <table>
+                                <tr>
+                                    <td class="highlight">7</td> <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td class="highlight">11</td> <td>11</td>
+                                </tr>
+                            </table>
+                    
+                            <ol start="3">
+                                <li>Помножи го векторот со матрицата:</li>
+                            </ol>
+                    
+                            <table class="tb">
+                                <tr>
+                                    <td>(2×7 + 3×11) % 26 = <strong>17</strong></td>
+                                    <td>(2×4 + 3×11) % 26 = <strong>9</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>(1×7 + 4×11) % 26 = <strong>25</strong></td>
+                                    <td>(1×4 + 4×11) % 26 = <strong>22</strong></td>
+                                </tr>
+                            </table>
+                    
+                            <ol start="4">
+                                <li>Претвори ги назад во букви: <strong>RI ZW</strong></li>
+                            </ol>
+                    
+                            <h3>Дешифрирање</h3>
+                            <ol>
+                                <li>Најди ја инверзната матрица:</li>
+                            </ol>
+                    
+                            <table>
+                                <tr>
+                                    <th>4</th> <th>-3</th>
+                                </tr>
+                                <tr>
+                                    <th>-1</th> <th>2</th>
+                                </tr>
+                            </table>
+                    
+                            <ol start="2">
+                                <li>Помножи со шифрираните броеви (RI ZW):</li>
+                            </ol>
+                    
+                            <table class="tb">
+                                <tr>
+                                    <td>(4×17 + (-3)×25) % 26 = <strong>7</strong></td>
+                                    <td>(4×9 + (-3)×22) % 26 = <strong>4</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>(-1×17 + 2×25) % 26 = <strong>11</strong></td>
+                                    <td>(-1×9 + 2×22) % 26 = <strong>11</strong></td>
+                                </tr>
+                            </table>
+                    
+                            <ol start="3">
+                                <li>Претвори назад во букви: <strong>HELLO</strong></li>
+                            </ol>
+            
+                        </div>
+                    </div>
+                    
+                    <a href="./views/hill.html" class="btn">Пробај сам</a>
+                </div>
+                
+                <div class="cipher" id="afina">
+                    <h2>Афина</h2>
+                    <p>Афината шифра е моноалфабетска заменска шифра која користи математички функции.</p>
+                    <p>Клучниот механизам вклучува множење и додавање за трансформација на буквите.
+                        <a href="javascript:void(0);" onclick="toggleContent(this)" class="seeMoreLink">🔍 Види повеќе</a>
+                    </p>
+                    <div class="moreContent-afina" style="display: none;">
+                        <p> Формулата за шифрирање е: <strong>E(x) = (ax + b) mod 26</strong></p>
+                        <p>Каде што <strong>a</strong> и <strong>b</strong> се клучеви и мора да биде инверзибилно модуло 26. Со правилно избор на овие клучеви, можете да ја заштитите вашата комуникација.</p>
+
+                        <h2>1. Позиции на букви во азбуката</h2>
+                        <table>
+                            <tr>
+                                <th>A</th> <th>B</th> <th>C</th> <th>D</th> <th>E</th> <th>F</th> <th>G</th> <th>H</th> <th>I</th> <th>J</th> <th>K</th> <th>L</th> <th>M</th>
+                            </tr>
+                            <tr>
+                                <td>0</td> <td>1</td> <td>2</td> <td>3</td> <td>4</td> <td>5</td> <td>6</td> <td class="highlight">7</td> <td>8</td> <td>9</td> <td>10</td> <td class="highlight">11</td> <td>12</td>
+                            </tr>
+                        <table>
+                            <table>
+
+                            <tr>
+                                <th>N</th> <th>O</th> <th>P</th> <th>Q</th> <th>R</th> <th>S</th> <th>T</th> <th>U</th> <th>V</th> <th>W</th> <th>X</th> <th>Y</th> <th>Z</th>
+                            </tr>
+                            <tr>
+                                <td>13</td> <td class="highlight">14</td> <td>15</td> <td>16</td> <td>17</td> <td>18</td> <td>19</td> <td>20</td> <td>21</td> <td class="highlight">22</td> <td>23</td> <td>24</td> <td>25</td>
+                            </tr>
+                        </table>
+                        <h3>📌 Пример</h3>
+                        <h4>2. Шифрирање со a = 5, b = 8</h4>
+                        <table>
+                            <tr> <th>Оригинал</th> <th>H</th> <th>E</th> <th>L</th> <th>L</th> <th>O</th> </tr>
+                            <tr> <th>Позиција</th> <td>7</td> <td>4</td> <td>11</td> <td>11</td> <td>14</td> </tr>
+                            <tr> <th>Формула</th> <td>(5×7+8) mod 26</td> <td>(5×4+8) mod 26</td> <td>(5×11+8) mod 26</td> <td>(5×11+8) mod 26</td> <td>(5×14+8) mod 26</td> </tr>
+                            <tr> <th>Резултат</th> <td>17 (R)</td> <td>2 (C)</td> <td>7 (H)</td> <td>7 (H)</td> <td>22 (W)</td> </tr>
+                        </table>
+                        
+                        <p><b>Шифриран текст: "RCHHW"</b></p>
+                    
+                        <h4>3. Дешифрирање</h4>
+                        <p>Наоѓаме модуларен инверз на a = 5, што е a⁻¹ = 21.</p>
+                        <p>Формула за дешифрирање: <b>D(y) = 21 × (y - 8) mod 26</b></p>
+                        <table>
+                            <tr> <th>Шифриран</th> <th>R</th> <th>C</th> <th>H</th> <th>H</th> <th>W</th> </tr>
+                            <tr> <th>Позиција</th> <td>17</td> <td>2</td> <td>7</td> <td>7</td> <td>22</td> </tr>
+                            <tr> <th>Формула</th> <td>21×(17-8) mod 26</td> <td>21×(2-8) mod 26</td> <td>21×(7-8) mod 26</td> <td>21×(7-8) mod 26</td> <td>21×(22-8) mod 26</td> </tr>
+                            <tr> <th>Резултат</th> <td>7 (H)</td> <td>4 (E)</td> <td>11 (L)</td> <td>11 (L)</td> <td>14 (O)</td> </tr>
+                        </table>
+                        
+                        <p><b>Оригинален текст: "HELLO"</b></p>
+                    </div>
+                    <a href="./views/afina.html" class="btn">Пробај сам</a>
+                </div>
+                
+                <div class="cipher" id="adfgvx">
+                    <h2>ADFGVX</h2>
+                    <p>ADFGVX е германска воена шифра од Првата светска војна.</p>
+                    <p>Комбинира заменска и транспозициона техника за дополнителна безбедност.
+                        <a href="javascript:void(0);" onclick="toggleContent(this)" class="seeMoreLink">🔍 Види повеќе</a>
+                    </p>
+                    
+                    <div class="moreContent-adfgvx" style="display: none;">
+                        <h3>📌 Пример</h3>
+
+                        <h4>1. Шифрирање</h4>
+                        <table>
+                            <tr>
+                                <th></th> <th>A</th> <th>D</th> <th>F</th> <th>G</th> <th>V</th> <th>X</th>
+                            </tr>
+                            <tr><th>A</th> <td>A</td> <td>B</td> <td>C</td> <td>D</td> <td class="highlight">E</td> <td>F</td></tr>
+                            <tr><th>D</th> <td>G</td> <td class="highlight">H</td> <td>I</td> <td>J</td> <td>K</td> <td class="highlight">L</td></tr>
+                            <tr><th>F</th> <td>M</td> <td>N</td> <td class="highlight">O</td> <td>P</td> <td>Q</td> <td>R</td></tr>
+                            <tr><th>G</th> <td>S</td> <td>T</td> <td>U</td> <td>V</td> <td>W</td> <td>X</td></tr>
+                            <tr><th>V</th> <td>Y</td> <td>Z</td> <td>0</td> <td>1</td> <td>2</td> <td>3</td></tr>
+                            <tr><th>X</th> <td>4</td> <td>5</td> <td>6</td> <td>7</td> <td>8</td> <td>9</td></tr>
+                        </table>
+                        <p>Секој знак се заменува со двобуквена комбинација, пример:</p>
+                        <p><b>"HELLO" → DD AV DX DX FF</b></p>
+                    
+                        <h4>2. Табела со клучен збор "KEY"</h4>
+                        <table>
+                            <tr> <th>K</th> <th>E</th> <th>Y</th> </tr>
+                            <tr> <td>D</td> <td>D</td> <td>A</td> </tr>
+                            <tr> <td>V</td> <td>D</td> <td>X</td> </tr>
+                            <tr> <td>D</td> <td>X</td> <td>F</td> </tr>
+                            <tr> <td>F</td> <td>-</td> <td>-</td> </tr>
+                        </table>
+                    
+                        <h4>3. Преподредување според клучниот збор</h4>
+                        <p>Клучниот збор "KEY" по азбучен редослед станува "EKY".</p>
+                        <table>
+                            <tr> <th>E</th> <th>K</th> <th>Y</th> </tr>
+                            <tr> <td>D</td> <td>D</td> <td>A</td> </tr>
+                            <tr> <td>D</td> <td>V</td> <td>X</td> </tr>
+                            <tr> <td>X</td> <td>D</td> <td>F</td> </tr>
+                            <tr> <td>-</td> <td>F</td> <td>-</td> </tr>
+                        </table>
+                    
+                        <p>Нов код: <b>DDX DVF DDX AF</b></p>
+                    
+                        <h4>4. Дешифрирање:</h4>
+                        <div>
+                            <p>Преподредете ја шифрираната порака според клучниот збор.</p>
+                            <p>Поделете ја на парови од букви (A, D, F, G, V, X).</p>
+                            <p>Пребарајте ги паровите во табелата и заменете ги со оригиналните знаци.</p>
+                            <p>Добивате го оригиналниот текст.</p>
+                        </div>
+                    </div>
+                    
+                    <a href="./views/adfgnx.html" class="btn">Пробај сам</a>
+                </div>
+                
+    
+            </div>
+        </div>
+    </section>
+    
+    <!-- main section - about -->
+    <section class="about-section" id="about">
+        <div class="about">
+            <section class="developers">
+                <h2>Нашите програмери</h1>
+        
+                <div class="developer-list">
+        
+                  <div class="developer"> 
+                    <p>&#128187;</p>          
+                    <h3>Тамара Атанасова</h3>
+                    <p>Frontend Developer со страст за создавање модерни и интуитивни UI/UX дизајни.</p>
+                  </div>
+        
+                  <div class="developer">     
+                    <p>&#128187;</p>          
+
+                    <h3>Славко Сребреноски</h3>
+                    <p>Full Stack Developer кој обединува најдоброто од двата света за да создаде комплетни веб-решенија.</p>
+                  </div>
+        
+                  <div class="developer">        
+                    <p>&#128187;</p>          
+
+                    <h3>Бојан Алексов</h3>
+                    <p>Backend Developer кој го осигурува сигурноста и ефикасноста на апликациите преку оптимизирани серверски решенија.</p>
+                  </div>
+                </div>
+              </section>
+            
+        </div>
+    </section>
+
+
+
+    <footer>
+        <p>&copy; 2022 Класична криптографиja! Сите права се задржани.</p>
+    </footer>
+</body>
+</html>

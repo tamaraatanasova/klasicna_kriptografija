@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atbash</title>
+    <link rel="stylesheet" href="/css/sihifri.css">
+    <script src="./../js/atbash.js"></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+        <ul id="menu">
+            <li><a href="/index.html">Почетна</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>🔐 Atbash Cipher</h1>
+        <p>Atbash е едноставна шифра за замена во која азбуката се превртува.</p>
+        <p>На пример, 'A' станува 'Z', 'B' станува 'Y' итн. Ова е една од најстарите шифри. </p>
+
+        <label for="inputText">Внеси текст (A-Z):</label>
+        <input type="text" id="inputText" placeholder="Example: HELLO">
+        
+        <button onclick="atbashEncrypt()"> Конвертирај</button>
+        
+        <div id="result-container">
+            <h2>📜 Резултат:</h2>   
+            <p id="result"></p>
+        </div>
+    </div>
+
+</body>
+</html>

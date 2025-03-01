@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hill</title>
+    <link rel="stylesheet" href="/css/sihifri.css">
+    <script src="./../js/hill.js"></script>
+
+</head>
+<body>
+    <nav class="navbar">
+        <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+        <ul id="menu">
+            <li><a href="/index.html">Почетна</a></li>
+        </ul>
+    </nav>
+
+    
+    <div class="container">
+        <h1>🔐 Hill Шифра</h1>
+        <p>Hill шифрата е полиалфабетска шифра базирана на матрично множење. Внесете матрица и текст.</p>
+        
+        <label for="matrixSize">Изберете големина на матрица:</label>
+        <select id="matrixSize" onchange="updateMatrixInputs()">
+            <option value="2" selected>2x2</option>
+            <option value="3">3x3</option>
+        </select>
+    
+        <label for="inputText">Внесете текст (само A-Z):</label>
+        <input type="text" id="inputText" placeholder="Пример: HELLO">
+    
+        <h2>🔑 Внесете клучна матрица:</h2>
+        <div id="matrixInputs"></div> 
+    
+        <button onclick="encrypt()">🔒 Шифрирај</button>
+        <button onclick="decrypt()">🔑 Дешифрирај</button>
+
+        <div id="result-container">
+            <h2>📜 Резултат:</h2>   
+            <p id="result"></p>
+        </div>
+
+        <button id="toggleStepsBtn" onclick="toggleSteps()" style="display: none;">📜 Покажи пресметка</button>
+        <pre id="steps" class="steps-box" style="display: none;"></pre>
+    </div>
+
+    <script>
+        window.onload = function() {
+            updateMatrixInputs();
+        };
+
+        function updateMatrixInputs() {
+            const size = parseInt(document.getElementById("matrixSize").value);
+            const matrixInputsDiv = document.getElementById("matrixInputs");
+            matrixInputsDiv.innerHTML = "";
+            for (let i = 0; i < size; i++) {
+                const rowDiv = document.createElement("div");
+                for (let j = 0; j < size; j++) {
+                    const input = document.createElement("input");
+                    input.type = "number";
+                    input.id = `key${i}${j}`;
+                    input.placeholder = `k${i}${j}`;
+                    input.style.width = "50px";
+                    rowDiv.appendChild(input);
+                }
+                matrixInputsDiv.appendChild(rowDiv);
+            }
+        }
+    </script>
+
+
+</body>
+</html>
