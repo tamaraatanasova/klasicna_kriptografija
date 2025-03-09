@@ -18,7 +18,7 @@ function getMatrix(size) {
 function textToNumbers(text, size) {
     let numericText = text.toUpperCase().replace(/[^A-Z]/g, "").split('').map(letter => letter.charCodeAt(0) - 65);
     while (numericText.length % size !== 0) {
-        numericText.push(23); 
+        numericText.push(23); // Додавање 'X' ако недостигаат букви
     }
     return numericText;
 }
@@ -39,14 +39,14 @@ function modInverse(a, m) {
     for (let x = 1; x < m; x++) {
         if ((a * x) % m === 1) return x;
     }
-    throw new Error("Внесената матрица не е инверзна по модул 26");
+    throw new Error("Матрицата нема модуларен инверз по 26.");
 }
 
 function determinant(matrix) {
     const n = matrix.length;
-    if (n === 1) return matrix[0][0];
+    if (n === 1) return matrix[0][0] % 26;
     if (n === 2) return ((matrix[0][0] * matrix[1][1]) - (matrix[0][1] * matrix[1][0])) % 26;
-    
+
     let det = 0;
     for (let i = 0; i < n; i++) {
         const subMatrix = matrix.slice(1).map(row => row.filter((_, j) => j !== i));
@@ -59,29 +59,30 @@ function getInverseMatrix(matrix) {
     const n = matrix.length;
     const det = determinant(matrix);
     if (gcd(det, 26) !== 1) {
-        throw new Error("Внесената матрица не е инверзна по модул 26");
+        throw new Error("Матрицата не е инверзибилна по модул 26.");
     }
     const detInv = modInverse(det, 26);
-    
+
     const adjugate = matrix.map((row, i) => 
         row.map((_, j) => {
             const subMatrix = matrix.filter((_, rowIdx) => rowIdx !== i).map(r => r.filter((_, colIdx) => colIdx !== j));
             return (((i + j) % 2 === 0 ? 1 : -1) * determinant(subMatrix) * detInv + 26) % 26;
         })
     );
-    
+
     return adjugate[0].map((_, colIndex) => adjugate.map(row => row[colIndex])); 
 }
 
 function gcd(a, b) {
     return b === 0 ? a : gcd(b, a % b);
 }
+
 function encrypt() {
     let text = document.getElementById("inputText").value;
     let size = parseInt(document.getElementById("matrixSize").value);
     let keyMatrix = getMatrix(size);
     if (!keyMatrix) return;
-    
+
     let numericText = textToNumbers(text, size);
     let encryptedText = "";
     let steps = [`📌 1. Конверзија во броеви: ${numericText.join(", ")}`];
@@ -96,11 +97,6 @@ function encrypt() {
     document.getElementById("result").innerText = encryptedText;
     document.getElementById("steps").innerHTML = steps.join("<br>");
     document.getElementById("toggleStepsBtn").style.display = "block";
-    document.getElementById("toggleStepsBtn").style.margin = "10px auto"; 
-    document.getElementById("toggleStepsBtn").style.display = "flex"; 
-    document.getElementById("toggleStepsBtn").style.justifyContent = "center";
-    
-
 }
 
 function decrypt() {
@@ -124,11 +120,7 @@ function decrypt() {
 
         document.getElementById("result").innerText = decryptedText;
         document.getElementById("steps").innerHTML = steps.join("<br>");
-        document.getElementById("toggleStepsBtn").style.display = "block"; 
-        document.getElementById("toggleStepsBtn").style.margin = "10px auto"; 
-        document.getElementById("toggleStepsBtn").style.display = "flex"; 
-        document.getElementById("toggleStepsBtn").style.justifyContent = "center"; 
-        
+        document.getElementById("toggleStepsBtn").style.display = "block";
     } catch (error) {
         alert(error.message);
     }

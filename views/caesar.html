@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caesar Cipher</title>
+    <link rel="stylesheet" href="./../css/sihifri.css">
+    <script src="./../js/caesar.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+        <ul id="menu">
+            <li><a href="../index.html">Почетна</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>🔐 Caesar Cipher</h1>
+        <p>Caesar шифрата е техника за шифрирање каде што секоја буква се заменува со друга одреден број места поместена во азбуката.</p>
+        
+        <label for="shift">Поместување (1-25):</label>
+        <input type="number" id="shift" min="1" max="25" value="3">
+        
+        <label for="inputText">Внеси текст (A-Z):</label>
+        <input type="text" id="inputText" placeholder="Example: HELLO">
+        
+        <button onclick="caesarEncrypt()">🔄 Шифрирај</button>
+        <button onclick="caesarDecrypt()">🔓 Дешифрирај</button>
+        
+        <div id="result-container">
+            <h2>📜 Резултат:</h2>   
+            <p id="result"></p>
+        </div>
+    </div>
+</body>
+</html>
